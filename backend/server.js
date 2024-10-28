@@ -28,7 +28,9 @@ app.use('/api/tasks',taskRoutes);
 app.use(cors({
     origin: [
         'https://task-manager-kappa-topaz.vercel.app',  // Current Vercel frontend URL
-        'https://task-manager-two-woad.vercel.app'      // Another Vercel URL if needed
+        'https://task-manager-two-woad.vercel.app'  ,
+        'https://task-manager-2jrz025z4-abhisheks-projects-1c338bd8.vercel.app'
+            // Another Vercel URL if needed
     ],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],  // Allowed methods
     credentials: true  // If you need to handle cookies or authentication
