@@ -41,9 +41,10 @@ function Login() {
     }
    } catch (error) {
     if(error.response){
-      console.log("error in login  ",error);
+      console.log("error in login  ",error.response?.data);
       setError(error.response.data.message || "Login failed. please try again"); 
     }else{
+      console.log("Unexpected error: ",error);
       setError("An unexpected error occured while login");
     }
    }
