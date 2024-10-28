@@ -18,12 +18,6 @@ const limiter = rateLimit({
 
 const app = express();
 app.use(limiter);
-// app.use(cors());
-app.use(express.json());
-app.use('/api',routes);
-app.use('/api/auth',authRoutes);
-app.use('/api/tasks',taskRoutes);
-
 
 app.use(cors({
     origin: [
@@ -35,6 +29,14 @@ app.use(cors({
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],  // Allowed methods
     credentials: true  // If you need to handle cookies or authentication
 }));
+
+
+app.use(express.json());
+app.use('/api',routes);
+app.use('/api/auth',authRoutes);
+app.use('/api/tasks',taskRoutes);
+
+
 
 
 
