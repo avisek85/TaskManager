@@ -18,11 +18,18 @@ const limiter = rateLimit({
 
 const app = express();
 app.use(limiter);
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use('/api',routes);
 app.use('/api/auth',authRoutes);
 app.use('/api/tasks',taskRoutes);
+
+
+app.use(cors({
+    origin: 'https://task-manager-two-woad.vercel.app', // Replace with your frontend URL
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Allowed methods
+}));
+
 
 
 

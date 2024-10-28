@@ -25,6 +25,7 @@ const router = createBrowserRouter([
   },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <RegisterForm /> },
+  {path:"*",element:<div>There is not any page</div>}
 ]);
 
 function AppRoutes() {
