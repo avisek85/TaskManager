@@ -30,6 +30,8 @@ app.use(cors({
     credentials: true  // If you need to handle cookies or authentication
 }));
 
+app.options('*', cors());
+
 
 app.use(express.json());
 app.use('/api',routes);
