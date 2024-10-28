@@ -9,6 +9,7 @@ function TaskManager() {
     const navigate = useNavigate();
     const [tasks,setTasks] = useState([]);
     const token = localStorage.getItem('token');
+    const [loading,setLoading] = useState(true);
 
     useEffect(()=>{fetchTask();},[]);
 
@@ -28,7 +29,12 @@ function TaskManager() {
         } catch (error) {
             setError('Could not load tasks. Please try again later.');
             console.log(error.message);
+        }finally{
+          setLoading(false);
         }
+
+        if(loading) return <p>Loading...</p>
+        
 
     }
 
