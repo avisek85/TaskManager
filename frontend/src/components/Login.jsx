@@ -27,7 +27,7 @@ function Login() {
     if(!isStrongPassword(input.password)){
       return setError("Enter correct password");
     }
-    const response = await axios.post(`${API_URL}/auth/login`,input,{
+    const response = await axios.post(`https://taskmanager-1-glyq.onrender.com/api/auth/login`,input,{
       headers:{'Content-Type':'application/json'}
     });
     if(response.data.token){
