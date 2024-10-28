@@ -3,6 +3,8 @@ import { isValidEmail } from "../utils/isValidEmail";
 import { isStrongPassword } from "../utils/isStrongPassword";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Login() {
   const [input, setInput] = useState({ email: "", password: "" });
   const [error,setError] = useState("");
@@ -25,7 +27,7 @@ function Login() {
     if(!isStrongPassword(input.password)){
       return setError("Enter correct password");
     }
-    const response = await axios.post("/api/auth/login",input,{
+    const response = await axios.post(`${API_URL}/auth/login`,input,{
       headers:{'Content-Type':'application/json'}
     });
     if(response.data.token){

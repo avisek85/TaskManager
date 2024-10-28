@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL;
 
 function TaskManager() {
 
@@ -17,7 +18,7 @@ function TaskManager() {
         try {
         console.log("fetch response ");
 
-            const res = await axios.get('/api/tasks',{headers:{
+            const res = await axios.get(`${API_URL}/tasks`,{headers:{
                 Authorization:`Bearer ${token}`
             }}
             );
@@ -34,7 +35,7 @@ function TaskManager() {
         }
 
         if(loading) return <p>Loading...</p>
-        
+
 
     }
 
@@ -53,7 +54,7 @@ function TaskManager() {
         }
       console.log("response");
 
-      const response = await axios.post("/api/tasks",input,{
+      const response = await axios.post(`${API_URL}/tasks`,input,{
         headers:{
             'Content-Type':'application/json',
             'Authorization':`Bearer ${token}`
@@ -81,7 +82,7 @@ function TaskManager() {
     const handleDeleteTask = async(id) =>{
         if(window.confirm('Are you sure you want to delete this task?')){
             try {
-                await axios.delete(`/api/tasks/${id}`,
+                await axios.delete(`${API_URL}/tasks/${id}`,
                     {headers:{
                         Authorization:`Bearer ${token}`
                     }}
@@ -105,7 +106,7 @@ function TaskManager() {
         const updatedTask = {...task,status:task.status ==='completed' ? 'incomplete':"completed"};
 
         try {
-            await axios.patch(`/api/tasks/${id}`,updatedTask,{headers:{
+            await axios.patch(`${API_URL}/tasks/${id}`,updatedTask,{headers:{
                 Authorization:`Bearer ${token}`
             }});
             fetchTask();

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { isValidEmail } from "../utils/isValidEmail";
 import { isStrongPassword } from "../utils/isStrongPassword";
 import {  useNavigate } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 
@@ -35,7 +36,7 @@ function RegisterForm() {
             return setError("Please Enter password greater than 8 characters");
         }
         // console.log("request hit");
-        const response = await axios.post('/api/auth/register',input,{
+        const response = await axios.post(`${API_URL}/auth/register`,input,{
             headers:{'Content-Type':'application/json'}
         });
         if(response.data.token){
