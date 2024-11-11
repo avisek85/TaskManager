@@ -25,7 +25,7 @@ app.use(cors({
         'https://task-manager-kappa-topaz.vercel.app',  // Vercel frontend URLs
         'https://task-manager-two-woad.vercel.app',
         'https://task-manager-2jrz025z4-abhisheks-projects-1c338bd8.vercel.app',
-      'https://task-manager-git-main-abhisheks-projects-1c338bd8.vercel.app'
+      'https://task-manager-git-main-abhisheks-projects-1c338bd8.vercel.app',
       'https://task-manager-mv93divea-abhisheks-projects-1c338bd8.vercel.app'
     ],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
