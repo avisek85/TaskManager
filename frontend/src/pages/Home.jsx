@@ -1,15 +1,15 @@
-import React from 'react'
-import LogoutButton from '../components/Logout'
-import TaskManager from '../components/TaskManager'
+import React from "react";
+import LogoutButton from "../components/Logout";
+import TaskManager from "../components/TaskManager";
 
 function Home() {
-  return (<>
-  <TaskManager/>
-<LogoutButton/>
-  
-  </>
-    
-  )
+  return (
+    <>
+      <TaskManager />
+      
+      <LogoutButton />
+    </>
+  );
 }
 
-export default Home
+export default Home;
