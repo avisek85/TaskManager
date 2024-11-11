@@ -5,8 +5,11 @@ const generateToken = require("../utils/jwt");
 const bcrypt = require("bcrypt");
 
 const register = async (req, res) => {
+  console.log("request hit backend start");
+
   try {
     const { username, email, password } = req.body;
+    console.log("user body is ",req.body);
     if(!username || !email || !password){
       return res.json({message:"Enter all field correctly"});
     }
@@ -24,6 +27,7 @@ const register = async (req, res) => {
 
     }
     else{
+      console.log("in registering else condition");
       return res.json({message:"Error while registering"})
     }
   } catch (error) {
