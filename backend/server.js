@@ -30,6 +30,8 @@ app.use(limiter);
 //     credentials: true  // If you need to handle cookies or authentication
 // }));
 // app.use(cors());
+app.options('*', cors());
+
 
 app.use(cors({
     origin: true,
@@ -38,7 +40,6 @@ app.use(cors({
 }));
 
 
-app.options('*', cors());
 
 
 app.use(express.json());
