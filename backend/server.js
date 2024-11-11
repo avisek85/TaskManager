@@ -26,6 +26,7 @@ app.use(cors({
         'https://task-manager-two-woad.vercel.app',
         'https://task-manager-2jrz025z4-abhisheks-projects-1c338bd8.vercel.app',
       'https://task-manager-git-main-abhisheks-projects-1c338bd8.vercel.app'
+      'https://task-manager-mv93divea-abhisheks-projects-1c338bd8.vercel.app'
     ],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true
@@ -34,12 +35,26 @@ app.use(cors({
 
 app.options('*', cors()); // Allows preflight requests
 
+const allowedOrigins = [
+  'https://task-manager-mv93divea-abhisheks-projects-1c338bd8.vercel.app',
+  'https://task-manager-kappa-topaz.vercel.app',
+  'https://task-manager-two-woad.vercel.app',
+  'https://task-manager-2jrz025z4-abhisheks-projects-1c338bd8.vercel.app',
+  'https://task-manager-git-main-abhisheks-projects-1c338bd8.vercel.app'
+];
+
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://task-manager-kappa-topaz.vercel.app'); // Replace with exact URL if needed
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    next();
+  const origin = req.headers.origin;
+  
+  // Check if the origin is in the allowed list
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
 });
 
 
