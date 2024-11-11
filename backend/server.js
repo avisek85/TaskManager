@@ -35,7 +35,7 @@ app.use(cors({
 app.options('*', cors()); // Allows preflight requests
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://task-manager-git-main-abhisheks-projects-1c338bd8.vercel.app'); // Replace with exact URL if needed
+    res.header('Access-Control-Allow-Origin', 'https://task-manager-kappa-topaz.vercel.app'); // Replace with exact URL if needed
     res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Credentials', 'true');
